@@ -245,8 +245,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties: true
+              $ref: "#/components/schemas/ConfigureConnectionPayload"
       responses:
         "200":
           description: Connection metadata
@@ -275,8 +274,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties: true
+              $ref: "#/components/schemas/UpdateConnectionStatusPayload"
       responses:
         "200":
           description: Configured connection
@@ -1102,6 +1100,16 @@ components:
             - embedded
           x-oapi-codegen-extra-tags:
             json: "mode,omitempty"
+
+    ConfigureConnectionPayload:
+      type: object
+      description: Kind-specific payload used to configure a connection.
+      additionalProperties: true
+
+    UpdateConnectionStatusPayload:
+      type: object
+      description: Kind-specific payload used to update a connection status.
+      additionalProperties: true
 
     ConnectionPayload:
       type: object
